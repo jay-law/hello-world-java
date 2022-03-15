@@ -73,3 +73,4 @@ $ mvn package
 $ java -cp target/hello-world-java-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 ```
+
