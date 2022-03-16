@@ -1,5 +1,3 @@
-# hello-world-java
-
 # Configure Local Env
 
 ## Install OpenJDK
@@ -9,12 +7,12 @@
 $ sudo mkdir /usr/lib/jvm
 $ cd /usr/lib/jvm
 
-# Download
+# Download.  Here jdk 18 (not 1.8) is used.  Probably better to use 17 as it
+# has more support
 $ sudo wget https://download.java.net/openjdk/jdk18/ri/openjdk-18+36_linux-x64_bin.tar.gz
 
 # Untar
 $ sudo tar -xvzf openjdk-18+36_linux-x64_bin.tar.gz
-
 
 # Update env vars
 $ echo "export JAVA_HOME=/usr/lib/jvm/jdk-18" >> ~/.profile
@@ -25,7 +23,6 @@ $ source ~/.profile
 
 # Confirm install
 $ java -version
-
 ```
 
 ## Install Maven
@@ -54,23 +51,32 @@ $ source ~/.profile
 $ mvn -version
 ```
 
-## Pom (pom.xml) Changes
+## Create Project
 
-`<artifactId>my-app</artifactId>` to `  <artifactId>hello-world-java</artifactId>`
-`<name>my-app</name>` to `  <name>hello-world-java</name>`
+Following instructions here - https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 
+```bash
+$ mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
 
-# Package
+Per the instructions, a java project will be created automatically in a directory called `my-app`.  I renamed the directory to `hello-world-java` so it can be pushed to my GitHub repo.  The following updates were made in the `pom.xml` file:
+- Change the `artifactId` value to `hello-world-java`
+- Change the `name` value to `hello-world-java`
+- Change the `maven.compiler.target` value to `17` (or whatever java version is installed locally)
+- Change the `maven.compiler.target` value to `17` (or whatever java version is installed locally)
+
+# Execute
+
+Still following the instructions from earlier, validate and package the project locally.
 
 ```bash
 
-$ mvn clean
-
+# Validate
 $ mvn validate
 
+# Package - This will run tests and build
 $ mvn package
 
+# Test the app works
 $ java -cp target/hello-world-java-1.0-SNAPSHOT.jar com.mycompany.app.App
-
 ```
-
