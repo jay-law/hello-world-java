@@ -1,3 +1,19 @@
+# Overview
+
+This tutorial is designed to walk users through packaging a Java application in three locations: locally, GitHub Actions (cloud), and Azure DevOps (cloud).   It's more of a working example opposed to an in-depth tutorial.
+
+Tested with the following:
+- Local machine:
+    - Ubuntu 20.04.4 LTS (64-bit)
+    - OpenJDK 18
+    - Maven 3.8.5
+- GitHub Actions:
+    - Ubuntu xxx
+    - Java 17
+- Azure DevOps:
+    - Ubuntu xxx
+    - Java 17
+
 # Configure Local Env
 
 ## Install OpenJDK
